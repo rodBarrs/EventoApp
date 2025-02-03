@@ -1,7 +1,20 @@
 package co.eventoapp.eventoapp.models;
 
-public class Evento {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+import java.io.Serializable;
+
+@Entity
+public class Evento implements Serializable {
+
+    private static final long seriaVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String nome;
     private String local;
     private String data;
@@ -37,5 +50,13 @@ public class Evento {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
